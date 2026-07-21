@@ -24,6 +24,8 @@ app.use("/api/products", productRouter);
 app.use("/api/upload", uploadRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/inngest", serve({ client: inngest, functions }));
+console.log("INNGEST_SIGNING_KEY:", !!process.env.INNGEST_SIGNING_KEY);
+console.log("INNGEST_EVENT_KEY:", !!process.env.INNGEST_EVENT_KEY);
 
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   console.error(err);
