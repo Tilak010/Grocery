@@ -147,7 +147,7 @@ export const updateOrderStatus = async (req: Request, res: Response)=>{
 export const getAllOrders = async (req: Request, res: Response)=>{
  
  const orders = await prisma.order.findMany({
-    where: {NOT:[{PaymentMethod: "card", isPaid: false}]},
+    where: {NOT:[{paymentMethod: "card", isPaid: false}]},
     include: {user: {select: {name: true, email:true ,phone:true}}},
     orderBy: {createdAt: "desc"},
  })
