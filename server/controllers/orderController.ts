@@ -44,9 +44,9 @@ export const createOrder = async (req: Request, res: Response)=>{
     })
 
     const subTotal = orderItems.reduce((sum: number, item: any)=> sum + item.price * item.quantity, 0)
-    const deliverFee = subTotal > 20 ? 0 : 1.99;
+    const deliveryFee = subTotal > 20 ? 0 : 1.99;
     const tax =Math.round(subTotal * 0.08 * 100) / 100;
-    const total = Math.round((subTotal + deliverFee + tax) * 100) / 100;
+    const total = Math.round((subTotal + deliveryFee + tax) * 100) / 100;
 
     const order = await prisma.order.create({
         data: {
@@ -55,7 +55,7 @@ export const createOrder = async (req: Request, res: Response)=>{
             shippingAddress,
             paymentMethod,
             subtotal: subTotal,
-            deliverFee,
+            deliveryFee,
             tax,
             total,
             statusHistory: [{status: "Placed", note: "Order placed successfully", timestamp: new Date()}]

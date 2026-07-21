@@ -93,7 +93,7 @@ const CartSideBar = () => {
             <div className="flex justify-between text-sm">
               <span className="text-app-text-light">Delivery</span>
               <span className="font-medium">{deliveryFee === 0 ? <span className=
-              "text-app-success">Free</span> : '${currency}${deliverFee.toFixed(2)}'}</span>
+              "text-app-success">Free</span> : '${currency}${deliveryFee.toFixed(2)}'}</span>
             </div>
             {deliveryFee > 0 && <p className="text-xs text-app-text-light text-center">Free delivery on
               orders {currency}20!</p>}

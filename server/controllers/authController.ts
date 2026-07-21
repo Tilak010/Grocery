@@ -1,7 +1,7 @@
 import { Request,Response } from "express";
 import { prisma } from "../config/prisma.js";
 import bcrypt from 'bcrypt'
-import jwt from "jsonWebToken";
+import jwt from "jsonwebtoken";
 
 //generate JWT token
 const generationToken = (id: string)=>{
